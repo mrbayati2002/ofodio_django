@@ -1,14 +1,19 @@
+{% load static %}
 <!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-	<style>
-/*		background: rgb(34,193,195);
-		background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);*/
-		body {background-color: powderblue;}
-	</style>
-</head>
-<body>
+<html lang="en">
+  <head>
+     <script src="{% static "plyr/plyr.js" %}"></script>
+     <link rel="stylesheet" href="{% static "plyr/plyr.css" %}">
+     <title></title>
+  </head>
 
-</body>
+  <body>
+	<video id="plyr-video" poster="{{ media }}/poster.jpg" controls>
+		<source src="{{ media }}/hello.mp4" type="video/mp4">
+		<source src="{{ media }}/hello.webm" type="video/webm">
+	</video>
+  </body>
+	<script>
+		plyr.setup("#plyr-video");
+	</script>
 </html>
