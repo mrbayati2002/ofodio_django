@@ -6,7 +6,8 @@
 </head>
 <body>
     {% for movie in movies %}
-        <p>{{movie.name}} --- {{ movie.pub_date}} --- {{movie.country}}</p>
+        <a href="/player/{{ movie.file }}">{{ movie.name }} -- {{  movie.pub_date }}</a>
+        <br>
     {% endfor %}
 </body>
 </html>

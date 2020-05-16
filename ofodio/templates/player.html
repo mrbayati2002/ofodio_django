@@ -8,9 +8,10 @@
   </head>
 
   <body>
-	<video id="plyr-video" poster="{{ media }}/poster.jpg" controls>
-		<source src="{{ media }}/hello.mp4" type="video/mp4">
-		<source src="{{ media }}/hello.webm" type="video/webm">
+  	<p>{{ movie }}</p>
+	<video id="plyr-video" poster="{{ media }}media/poster.jpg" controls>
+		<source src="{{ media }}{{ moviename }}" type="video/mp4">
+		{# <source src="{{ media }}/hello.webm" type="video/webm"> #}
 	</video>
   </body>
 	<script>
