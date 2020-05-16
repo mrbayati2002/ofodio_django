@@ -1,5 +1,4 @@
 from django.db import models
-import hashlib
 
 DEF_PATH = 'files/'
 
@@ -28,19 +27,19 @@ GENRE = (
 )
 
 class Movie(models.Model):
-    def movie_name_to_database(name, hashstr):
-        name = str(name)
-        hashstr = str(hashstr)
-        import sqlite3
-        con = sqlite3.connect('movie_names.sqlite3')
-        c = con.cursor()
-        c.execute('CREATE TABLE IF NOT EXISTS movies(name TEXT, hash TEXT)')
-        c.execute('INSERT INTO movies VALUES("%s", "%s")'%(name, hashstr))
-        con.commit()
-        con.close()
+    # def movie_name_to_database(name, hashstr):
+    #     name = str(name)
+    #     hashstr = str(hashstr)
+    #     import sqlite3
+    #     con = sqlite3.connect('movie_names.sqlite3')
+    #     c = con.cursor()
+    #     c.execute('CREATE TABLE IF NOT EXISTS movies(name TEXT, hash TEXT)')
+    #     c.execute('INSERT INTO movies VALUES("%s", "%s")'%(name, hashstr))
+    #     con.commit()
+    #     con.close()
 
-    
-    _hash = hashlib.sha256
+    # import hashlib
+    # _hash = hashlib.sha256
 
     name = models.CharField(max_length = 150)
     pub_date = models.DateField('date published')
@@ -51,11 +50,14 @@ class Movie(models.Model):
     genre = models.CharField(max_length=20, choices=GENRE, default='بدون دسته بندی')
     rank = models.FloatField(default=0)
     summary = models.CharField(max_length=200)
-    hashstr = _hash('{}-{}'.format(str(name), str(pub_date)).encode('utf-8')).hexdigest()
-    movie_path = DEF_PATH + hashstr
+    # hashstr = _hash('{}-{}'.format(str(name), str(pub_date)).encode('utf-8')).hexdigest()
+    # movie_path = DEF_PATH + hashstr
+    def ppppp(self):
+        return str(self.pub_date)
+    movie_path = DEF_PATH + str(name) + '-' + str()
     cover = models.ImageField(blank=False, null=True, upload_to=movie_path)
 
-    movie_name_to_database(name, hashstr)
+    # movie_name_to_database(name, hashstr)
     # print("#############" + str(name) +"###########")
 
 

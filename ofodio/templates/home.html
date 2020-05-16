@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ofodio :)</title>
+</head>
+<body>
+    {% for movie in movies %}
+        <p>{{movie.name}} --- {{ movie.pub_date}} --- {{movie.country}}</p>
+    {% endfor %}
+</body>
+</html>
