@@ -104,5 +104,5 @@ ENV/
 secrets.txt
 run
 files/
-ofodio/media/
-ofodio/settings.py
+media/
+settings.py
